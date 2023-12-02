@@ -10,7 +10,7 @@ class Jogo():
     #Métodos especiais
     def __str__(self):
         return f'''
-Nome: {self.nome}, 
+Nome: {self.nome}
 Desenvolvedor: {self.desenvolvedor}
 Produtora: {self.produtora} 
 Gênero: {self.genero}
