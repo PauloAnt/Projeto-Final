@@ -7,6 +7,48 @@ class Jogo():
         self.__sistema = sistema
         self.__data = data
 
+    #Métodos especiais
+    def __str__(self):
+        return f'''
+Nome: {self.nome}, 
+Desenvolvedor: {self.desenvolvedor}
+Produtora: {self.produtora} 
+Gênero: {self.genero}
+Sistema Operacional: {self.sistema}
+Criação: {self.data}
+'''
+
+    def __eq__(self, other):
+        if isinstance(other, Jogo):
+            return self.nome == other.nome
+        return False
+    
+    def __le__(self, other):
+        if isinstance(other, Jogo):
+            return self.nome == other.nome
+        return False
+
+    def __gt__(self, other):
+        if isinstance(other, Jogo):
+            return self.nome == other.nome
+        return False
+    
+    def __ge__(self, other):
+        if isinstance(other, Jogo):
+            return self.nome == other.nome
+        return False
+
+    def __lt__(self, other):
+        if isinstance(other, Jogo):
+            return self.nome == other.nome
+        return False
+
+    def __ne__(self, other):
+        if isinstance(other, Jogo):
+            return self.nome == other.nome
+        return False
+    
+    #Getters
     @property
     def nome(self):
         return self.__nome
