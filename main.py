@@ -30,29 +30,13 @@ while True:
         resposta = input("Opção: ").lower()
         
         if (resposta == "l"):
-            print(f"Resultado (SO): {Jogo.sistema}")
-            
-    #            print(f" Jogo           Gênero          Desenvolvedor")
-            
-            #Aqui deve ser mostrado os jogos na determinada ordem |  Gênero do jogo | Desenvolvedor dos jogo
-            
             continue    
-        
-        elif (resposta == "p"):
-            print(f"Tipo de busca: (l) Ocorrência da palavra: {}")
-            print(f"Jogo: {Jogo.nome}")
-
-    #            print(f" Jogo           Gênero          Desenvolvedor")
             
-            #Deve conter os jogos que contenham o nome ou parte do nome iguais | Gênero do jogo | Desenvolvedor dos jogos
+        elif (resposta == "p"):
             continue
 
         elif (resposta == "d"):
-            print("##Listando jogos por ano##")
-            ano = int(input("Digite o ano para que seja exibido os jogos:"))
-            if (ano == Jogo.data):
-    #            print(f" Jogo           Gênero          Desenvolvedor")
-                print(f"{Jogo.nome}, {Jogo.genero}, {Jogo.desenvolvedor}")
+            continue
 
         elif (resposta == "s"):
             print("Finalizando o programa...")
