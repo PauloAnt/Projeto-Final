@@ -275,7 +275,7 @@ class BinarySearchTree:
         '''
         Returns a string representation of the tree in preorder traversal.
         '''
-        return self.__preorderToStr(self.__root)[:-2]
+        return self.__preorderToStr(self.__root)
 
     def __preorderToStr(self, root)->str:
         if (root is None):
@@ -362,6 +362,38 @@ class BinarySearchTree:
 
         for element in values:
             self.add(element)
+
+
+    def __storeBSTNodes(self, root:Node, nodes:list):
+        if not root:
+            return
+        self.__storeBSTNodes(root.left, nodes)
+        nodes.append(root)
+        self.__storeBSTNodes(root.right, nodes)
+    
+    # Recursive function to construct binary tree 
+    def __buildTreeUtil(self, nodes:list, start, end):
+        if start > end:
+            return None
+        # Get the middle element and make it root 
+        mid=(start+end)//2
+        node = nodes[mid]
+        # Using index in Inorder traversal, construct 
+        # left and right subtress
+        node.left = self.__buildTreeUtil(nodes, start, mid-1)
+        node.right = self.__buildTreeUtil(nodes, mid+1, end)
+        return node
+    
+    # This functions converts an unbalanced BST to 
+    # a balanced BST
+    def buildTree(self):
+        # Store nodes of given BST in sorted order 
+        nodes=[]
+        self.__storeBSTNodes(self.__root, nodes)
+    
+        # Constructs BST from nodes[] 
+        n=len(nodes)
+        self.__root = self.__buildTreeUtil(nodes, 0, n-1)
 
     def __iter__(self):
         '''
