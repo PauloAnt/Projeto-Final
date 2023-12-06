@@ -275,7 +275,7 @@ class BinarySearchTree:
         '''
         Returns a string representation of the tree in preorder traversal.
         '''
-        return self.__preorderToStr(self.__root)
+        return self.__preorderToStr(self.__root)[:-2]
 
     def __preorderToStr(self, root)->str:
         if (root is None):
@@ -363,37 +363,60 @@ class BinarySearchTree:
         for element in values:
             self.add(element)
 
-
-    def __storeBSTNodes(self, root:Node, nodes:list):
-        if not root:
+    def __saveToArray(self, root:Node,nodes:List[Node]):   
+        '''
+        A recursive method to get an array of nodes in inorder
+        traversal of a given binary tree.
+        Arguments
+        ---------
+        root (Node): the node of the tree.
+        nodes (List[Node]): the list that stores the nodes visited
+        in inorder traversal.
+        Note
+        ----
+        Method of suport to the method __rebuild().
+        '''         
+        if not root:  # Base case
             return
-        self.__storeBSTNodes(root.left, nodes)
+        
+        # Store nodes in Inorder traversal
+        self.__saveToArray(root.left,nodes)
         nodes.append(root)
-        self.__storeBSTNodes(root.right, nodes)
-    
-    # Recursive function to construct binary tree 
-    def __buildTreeUtil(self, nodes:list, start, end):
-        if start > end:
+        self.__saveToArray(root.right,nodes)          
+
+
+    def __rebuild(self, sorted_list:List[Node],start_index:int,end_index:int):
+        '''
+        A recursive method to rebuild the BST from a sorted array in
+        order to balance it.
+        Arguments
+        ---------
+        sorted_list (List[Node]): the list of nodes in inorder traversal.
+        start_index (int): the start index of the list.
+        end_index (int): the end index of the list.
+        Note
+        ----
+        Method of suport to the public method balance().
+        '''        
+        if start_index>end_index: # base case 
             return None
+    
         # Get the middle element and make it root 
-        mid=(start+end)//2
-        node = nodes[mid]
-        # Using index in Inorder traversal, construct 
-        # left and right subtress
-        node.left = self.__buildTreeUtil(nodes, start, mid-1)
-        node.right = self.__buildTreeUtil(nodes, mid+1, end)
-        return node
+        middle_index=(start_index + end_index)//2
+        no = sorted_list[middle_index]
     
-    # This functions converts an unbalanced BST to 
-    # a balanced BST
-    def buildTree(self):
-        # Store nodes of given BST in sorted order 
-        nodes=[]
-        self.__storeBSTNodes(self.__root, nodes)
+        # Using index in Inorder traversal, construct left and right subtress
+        no.left = self.__rebuild(sorted_list,start_index,middle_index-1)
+        no.right= self.__rebuild(sorted_list,middle_index+1,end_index)
+        return no 
     
-        # Constructs BST from nodes[] 
-        n=len(nodes)
-        self.__root = self.__buildTreeUtil(nodes, 0, n-1)
+    def balance(self):
+        '''
+        Balances the tree.
+        '''
+        nodes = []
+        self.__saveToArray(self.__root, nodes)
+        self.__root =  self.__rebuild(nodes, 0, len(nodes) - 1)
 
     def __iter__(self):
         '''

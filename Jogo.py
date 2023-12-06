@@ -1,5 +1,6 @@
 class Jogo():
-    def __init__(self, nome, desenvolvedor, produtora, genero, sistema, data):
+    def __init__(self, nome:str, desenvolvedor:str="", produtora:str="", genero:str="", sistema:str="", data:str=""):
+        assert type(nome) == str and type(desenvolvedor) == str and type(produtora) == str and type(genero) == str and type(sistema) == str and type(data) == str, "Os parâmetros devem ser do tipo str!"
         self.__nome = nome
         self.__desenvolvedor = desenvolvedor
         self.__produtora = produtora
@@ -21,32 +22,26 @@ Criação: {self.data}
     def __eq__(self, other):
         if isinstance(other, Jogo):
             return self.nome == other.nome
-        return False
     
     def __le__(self, other):
         if isinstance(other, Jogo):
-            return self.nome == other.nome
-        return False
+            return self.nome <= other.nome
 
     def __gt__(self, other):
         if isinstance(other, Jogo):
-            return self.nome == other.nome
-        return False
+            return self.nome > other.nome
     
     def __ge__(self, other):
         if isinstance(other, Jogo):
-            return self.nome == other.nome
-        return False
+            return self.nome >= other.nome
 
     def __lt__(self, other):
         if isinstance(other, Jogo):
-            return self.nome == other.nome
-        return False
+            return self.nome < other.nome
 
     def __ne__(self, other):
         if isinstance(other, Jogo):
-            return self.nome == other.nome
-        return False
+            return self.nome != other.nome
     
     #Getters
     @property
