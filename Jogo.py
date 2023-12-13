@@ -21,27 +21,27 @@ Criação: {self.data}
 
     def __eq__(self, other):
         if isinstance(other, Jogo):
-            return self.nome == other.nome
+            return self.nome.lower() == other.nome.lower()
     
     def __le__(self, other):
         if isinstance(other, Jogo):
-            return self.nome <= other.nome
+            return self.nome.lower() <= other.nome.lower()
 
     def __gt__(self, other):
         if isinstance(other, Jogo):
-            return self.nome > other.nome
+            return self.nome.lower() > other.nome.lower()
     
     def __ge__(self, other):
         if isinstance(other, Jogo):
-            return self.nome >= other.nome
+            return self.nome.lower() >= other.nome.lower()
 
     def __lt__(self, other):
         if isinstance(other, Jogo):
-            return self.nome < other.nome
+            return self.nome.lower() < other.nome.lower()
 
     def __ne__(self, other):
         if isinstance(other, Jogo):
-            return self.nome != other.nome
+            return self.nome.lower() != other.nome.lower()
     
     #Getters
     @property
