@@ -4,6 +4,17 @@ from Jogo import Jogo
 from time import sleep
 from HistoricoSearch import HistorySearch, HistorySearchException
 
+
+def print_resultado(so:str, jogos):
+    print(f'''
+Resultado (SO): {so}
+    Jogo            Genero            Desenvolvedor
+=== ==============  ================  ================''')
+    for item in jogos:
+        
+        print(f'{item[0]:03d}  {item[1].ljust(14," "):.14s} {item[2]:.16s}')
+
+
 def cor_azul(texto):
     return f"\033[94m{texto}\033[0m"
 
@@ -17,6 +28,9 @@ for item in jogos:
     game = Jogo(item[0], item[1], item[2], item[3], item[4], item[5])
     gamer_center.addGame(game)
 
+
+print_resultado('windows', [[1,'Metal Gear', 'Konami'],[2,'estruturas de dados extensa','instituto federal da parqiba']])
+exit()
 #Menu
 while True:
     try:
@@ -32,7 +46,11 @@ while True:
             
         if (resposta == "p"):
             pesquisa = input("Pesquisar: ").lower()
-            print(gamer_center.search_game(pesquisa))
+            jogo_encontrado = gamer_center.search_game(pesquisa)
+            if jogo_encontrado:
+                print(jogo_encontrado)
+            else:
+                print(f'Jogo de chave {pesquisa} inexistente no catálogo')
             sleep(2)
 
         elif (resposta == "l"):

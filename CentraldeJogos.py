@@ -14,10 +14,13 @@ class CentralDeJogos():
     def find_game_SO(self):
         pass
 
-    def search_game(self, key):
+    def search_game(self, key)->Jogo:
         pesquisar_jogo = Jogo(key)
-        if (self.__tree.search(pesquisar_jogo) == None):
-            return f"Esse jogo não existe!"
-        else:
-            return self.__tree.search(pesquisar_jogo)
+        return  self.__tree.search(pesquisar_jogo) 
+    
+    def getJogos(self):
+        jogos = []
+        for carga in self.__tree:
+            jogos.append(carga)
+        return jogos
 
