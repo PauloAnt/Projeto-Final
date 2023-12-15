@@ -1,5 +1,6 @@
 from BinarySearchTree import BinarySearchTree
 from Jogo import Jogo
+from Levenshtein import distance
 
 class CentralDeJogos():
     def __init__(self):
@@ -8,17 +9,58 @@ class CentralDeJogos():
     def addGame(self, jogo:Jogo):
         self.__tree.add(jogo)
 
-    def find_game_year(self):
-        pass
-    
-    def find_game_SO(self):
-        pass
+    def find_all_SO(self)-> list:
+        so_games = []
+        for item in self.__tree:
+            aux = item.sistema.lower().split()
+            for elemento in aux:
+                if (elemento not in so_games):
+                    so_games.append(elemento)
+        return so_games
 
-    def search_game(self, key)->Jogo:
-        pesquisar_jogo = Jogo(key)
-        return  self.__tree.search(pesquisar_jogo) 
+    def find_all_year(self)-> list:
+        year_games = []
+        for item in self.__tree:
+            aux = item.data.split("/")
+            if (aux[2] not in year_games):
+                year_games.append(aux[2])
+        return year_games
     
-    def getJogos(self):
+    def find_game_year(self, year:str)-> list:
+        year_games = []
+        all_years = self.find_all_year()
+        if (year in all_years):
+            for item in self.__tree:
+                aux = item.data.split("/")
+                if (aux[2] == year):
+                    year_games.append(item)
+            return year_games
+        else:
+            return False
+        
+    def find_game_SO(self, so:str) -> list:
+        so_games = []
+        all_so = self.find_all_SO()
+        if (so in all_so):
+            for game in self.__tree:
+                if (so in game.sistema.lower()):
+                    so_games.append(game)
+            return so_games
+        else:
+            return False
+
+    def search_game(self, key):
+        pesquisar_jogo = Jogo(key)
+        case_levenshtein = []
+        if (self.__tree.search(pesquisar_jogo)):
+            return self.__tree.search(pesquisar_jogo)
+        else:
+            for item in self.__tree:
+                if (distance(item.nome[:3].lower(), key[:3]) == 0):
+                    case_levenshtein.append(item)
+            return case_levenshtein
+    
+    def getJogos(self)-> list:
         jogos = []
         for carga in self.__tree:
             jogos.append(carga)

@@ -6,14 +6,17 @@ class HistorySearchException(Exception):
 
 class HistorySearch:
     def __init__(self):
-        self.__search_fila = Fila(4)
+        self.__pilha = Pilha(5)
+    
+    def __str__(self):
+        return f'{", ".join(map(str, self.get_history()))}'
     
     def add_search(self, search):
-        self.__search_fila.enfileirar(search)
+        self.__pilha.empilha(search)
 
     def remove_search(self):
-        if self.__search_fila.estaVazia():
-            self.__search_fila.desenfileirar()
+        if self.__pilha.estaVazia():
+            self.__pilha.desempilha()
 
-    def get_search_history(self):
-        return self.__search.fila
+    def get_history(self):
+        return list(self.__pilha)

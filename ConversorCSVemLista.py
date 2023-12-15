@@ -58,37 +58,3 @@ def formata_data(data:str, sep:str)->str:
     else:
         data_formatada = separa_data[1] + "/" + meses[separa_data[0]] + "/" + separa_data[2]
     return data_formatada
-
-# lista_nome_jogos = []
-# cont_SO = {}
-# anos = {}
-# cont_descartados = 0
-# print(f"Quantidade de itens carregados: {len(dados)}\n")
-#     print(f"Quantidade de itens descartados: {cont_descartados}\n")
-#     print(f"Sistema Operacional mais popular: {max(cont_SO, key=cont_SO.get)}\n")
-
-#     print("Quantidade de jogos lançados em cada ano:")
-#     for chave, valor in sorted(anos.items()):
-#         print(f'{chave}: {valor} jogo(s)')
-# if (len(info) > 0):
-#         if (info[0] not in lista_nome_jogos):
-#             lista_nome_jogos.append(info[0])
-#             for i in info[4].split():
-#                 if (i not in cont_SO):
-#                     cont_SO[i] = 1
-#                 else:
-#                     if (cont_SO == "Microsoft"):
-#                         cont_SO["Windows"] += 1
-#                     else:
-#                         cont_SO[i] += 1
-#             jogo = Jogo(info[0], info[1], info[2], info[3], info[4], data_formatada)
-#             dados.add(jogo)
-#             info = []
-#             ignorar_proximo = []
-#         else:
-#             info = []
-#             ignorar_proximo = []
-#     else:
-#         info = []
-#         ignorar_proximo = []
-#         cont_descartados += 1

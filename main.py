@@ -5,59 +5,87 @@ from time import sleep
 from HistoricoSearch import HistorySearch, HistorySearchException
 
 
-def print_resultado(so:str, jogos):
-    print(f'''
-Resultado (SO): {so}
-    Jogo            Genero            Desenvolvedor
-=== ==============  ================  ================''')
-    for item in jogos:
-        
-        print(f'{item[0]:03d}  {item[1].ljust(14," "):.14s} {item[2]:.16s}')
-
-
 def cor_azul(texto):
     return f"\033[94m{texto}\033[0m"
 
 def cor_vermelha(texto):
     return f"\033[91m{texto}\033[0m"
 
+def exibir_menu_com_historico(history_search):
+        print(f'''
+{cor_vermelha("================ Menu Principal ===============")}
+{cor_azul("(p)")} Pesquisar jogo.                                
+{cor_azul("(l)")} Listar os jogos por sistema operacional.        
+{cor_azul("(d)")} Listar jogos por ano de lançamento.           
+{cor_azul("(s)")} Sair.
+{cor_vermelha("Histórico de pesquisa: ")}{history_search}
+''')
+
+def print_resultado(search:str, jogos:list):
+    cont = 0
+    print(f'''
+Resultados: {search} 
+ID  Jogo            Genero            Desenvolvedor 
+=== ==============  ================  ================''') 
+    for item in jogos:
+        cont += 1
+        print(f'{cont:03d} {item.nome:<14.14}  {item.genero:<16.16}  {item.desenvolvedor:.16s}')
+
+
+
+#Necessário a implementação 
+        # Quantidade de itens carregados;
+#   Quantidade de itens descartados;
+#       O Sistema operacional que tem mais títulos de jogos disponíveis;
+#           Quantos jogos foram lançados em cada ano, por ordem decrescente de ano. Por exemplo:
+                # 1997: 12
+                # 1998: 15
+                # 1999: 7
+
+# ----------------------------------------------------------------------------------------------------------------------
+
 jogos = converte_csv_em_lista("computer_games.csv")
 gamer_center = CentralDeJogos()
+history_search = HistorySearch()
 
 for item in jogos:
     game = Jogo(item[0], item[1], item[2], item[3], item[4], item[5])
     gamer_center.addGame(game)
 
-
-print_resultado('windows', [[1,'Metal Gear', 'Konami'],[2,'estruturas de dados extensa','instituto federal da parqiba']])
-exit()
-#Menu
 while True:
     try:
-        print(f'''
-{cor_vermelha("================ Menu Principal ===============")} 
-{cor_azul("(p)")} Pesquisar jogo.
-{cor_azul("(l)")} Listar os jogos por sistema operacional.
-{cor_azul("(d)")} Listar jogos por ano de lançamento.
-{cor_azul("(s)")} Sair.                 
-''')
+        exibir_menu_com_historico(history_search)
 
-        resposta = input("Opção: ")
-            
+        resposta = input("Opção: ").lower()
+             
         if (resposta == "p"):
-            pesquisa = input("Pesquisar: ").lower()
+            pesquisa = input("Pesquisar: ")
             jogo_encontrado = gamer_center.search_game(pesquisa)
-            if jogo_encontrado:
+            if (type(jogo_encontrado) != list):
                 print(jogo_encontrado)
             else:
-                print(f'Jogo de chave {pesquisa} inexistente no catálogo')
+                print_resultado(pesquisa, jogo_encontrado)
+            history_search.add_search(pesquisa)
             sleep(2)
 
         elif (resposta == "l"):
-            continue
+            sistema_operacional = input("Exibir os jogos disponíveis em qual sistema operacional: ").lower()
+            so_games = gamer_center.find_game_SO(sistema_operacional)
+            if (so_games == False):
+                print("Sistema operacional inexistente!")
+            else:
+                print_resultado(sistema_operacional, so_games)
+            history_search.add_search(sistema_operacional)
 
         elif (resposta == "d"):
-            continue
+            ano_de_lançamento = input("Digite o ano: ")
+            year_games = gamer_center.find_game_year(ano_de_lançamento)
+            if (year_games == False):
+                print("Ano inexistente!")
+            else:
+                print_resultado(ano_de_lançamento, year_games)
+            history_search.add_search(ano_de_lançamento)
+            
 
         elif (resposta == "s"):
             print("Finalizando o programa...")

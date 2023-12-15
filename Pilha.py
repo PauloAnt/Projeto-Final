@@ -207,4 +207,18 @@ class Pilha:
             s += str(self.__dado[i]) + ','
         s = s.rstrip(',') # remove a última vírgula
         s += ']<-topo'
-        return s      
+        return s     
+
+    def __iter__(self):
+        """Método que permite iterar sobre os elementos da pilha."""
+        self.__iter_pos = 0
+        return self
+
+    def __next__(self):
+        """Método chamado para obter o próximo elemento durante a iteração."""
+        if self.__iter_pos <= self.__topo:
+            elemento = self.__dado[self.__iter_pos]
+            self.__iter_pos += 1
+            return elemento
+        else:
+            raise StopIteration
