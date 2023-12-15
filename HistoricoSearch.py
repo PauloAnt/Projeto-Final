@@ -1,4 +1,4 @@
-from Fila import Fila, FilaException
+from Pilha import Pilha, PilhaException
 
 class HistorySearchException(Exception):
     def __init__(self, msg):
