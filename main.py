@@ -32,7 +32,6 @@ ID  Jogo            Genero            Desenvolvedor
         print(f'{cont:03d} {item.nome:<14.14}  {item.genero:<16.16}  {item.desenvolvedor:.16s}')
 
 
-
 #Necessário a implementação 
         # Quantidade de itens carregados;
 #   Quantidade de itens descartados;
@@ -86,7 +85,6 @@ while True:
                 print_resultado(ano_de_lançamento, year_games)
             history_search.add_search(ano_de_lançamento)
             
-
         elif (resposta == "s"):
             print("Finalizando o programa...")
             sleep(1)
