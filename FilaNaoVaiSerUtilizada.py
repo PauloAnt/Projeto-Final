@@ -1,4 +1,4 @@
-# Não vai ser utilizado.
+# Não vai ser utilizada.
 
 import numpy as np
 
