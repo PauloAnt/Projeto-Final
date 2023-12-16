@@ -1,3 +1,5 @@
+# Não vai ser utilizado.
+
 import numpy as np
 
 class FilaException(Exception):
