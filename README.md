@@ -1,5 +1,4 @@
-### Projeto-Final
-<h1 align="center">Processamento de Dados - Dataset de Jogos de Computadores </h1>
+<h1 align="center">Projeto Final </h1>
 
 ### Descrição do Projeto
 <p align="center">Processamento de um dataset para pesquisas sobre jogos armazenados em um arquivo CSV. </p>
