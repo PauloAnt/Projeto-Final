@@ -42,7 +42,7 @@
 
   <footer>
     <p>
-      &copy; 2023 Este projeto é distribuído sob a licença MIT. Consulte o arquivo <a href="LICENSE">https://github.com/PauloAnt/Projeto-Final/blob/main/LICENSE</a> para obter mais detalhes.
+      &copy; 2023 Este projeto é distribuído sob a licença MIT. Consulte o arquivo <a href="https://github.com/PauloAnt/Projeto-Final/blob/main/LICENSE">LICENSE</a> para obter mais detalhes.
     </p>
   </footer>
 
