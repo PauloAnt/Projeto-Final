@@ -8,25 +8,25 @@
 
   <header>
     <h1>Projeto Final</h1>
-    <p>Uma breve descrição do seu projeto.</p>
+    <p>Processamento de dataset para povoamento de dados em um sistema de buscas de jogos.</p>
   </header>
 
   <section>
     <h2>Visão Geral</h2>
     <p>
-      Descreva aqui de forma sucinta o propósito e a funcionalidade do seu projeto.
+      O projeto tem como objetivo processar dados de um arquivo CSV, utilizar estruturas de dados e devolver os itens da pesquisa ao usuário final.
     </p>
   </section>
 
   <section>
     <h2>Instalação</h2>
     <p>
-      Forneça instruções passo a passo sobre como instalar e configurar seu projeto. Inclua pré-requisitos, se necessário.
+      Para utilizar o código basta baixar o arquivo diretamente do github e instalar as suas pendências de funcionamento.
     </p>
     <code>
       <!-- Exemplo de código de instalação -->
-      git clone https://github.com/seu-usuario/seu-projeto.git
-      cd seu-projeto
+      git clone https://github.com/PauloAnt/Projeto-Final.git
+      cd Projeto-Final
       npm install
     </code>
   </section>
@@ -34,7 +34,7 @@
   <section>
     <h2>Como Usar</h2>
     <p>
-      Explique como os usuários podem utilizar seu projeto. Forneça exemplos de código, se possível.
+      Rode o código e siga as instruções do menu de pesquisas que se encontra no main.
     </p>
     <code>
       // Exemplo de código de uso
