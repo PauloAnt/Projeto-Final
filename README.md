@@ -21,7 +21,7 @@
   <section>
     <h2>Contribuição</h2>
     <p>
-      PauloAnt ---
+      <a href="https://github.com/PauloAnt">PauloAnt</a> ---
       rodrigoPadi ---
       RyannFB
     </p>
