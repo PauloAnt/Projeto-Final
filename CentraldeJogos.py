@@ -6,6 +6,9 @@ class CentralDeJogos():
     def __init__(self):
         self.__tree = BinarySearchTree()
 
+    def __len__(self):
+        return len(self.__tree)
+
     def addGame(self, jogo:Jogo):
         self.__tree.add(jogo)
 
@@ -56,10 +59,31 @@ class CentralDeJogos():
             return self.__tree.search(pesquisar_jogo)
         else:
             for item in self.__tree:
-                if (distance(item.nome[:3].lower(), key[:3]) == 0):
+                if (distance(item.nome[:3].lower(), key[:3].lower()) == 0):
                     case_levenshtein.append(item)
             return case_levenshtein
     
+    def cont_game_per_year(self)->dict:
+        years = {}
+        for item in self.__tree:
+            aux = item.data.split("/")
+            if (aux[2] not in years):
+                years[aux[2]] = 1
+            else:
+                years[aux[2]] += 1
+        return years
+
+    def cont_so(self)->dict:
+        so_cont = {}
+        for item in self.__tree:
+            aux = item.sistema.split()
+            for elemento in aux:
+                if (elemento not in so_cont):
+                    so_cont[elemento] = 1
+                else:
+                    so_cont[elemento] += 1
+        return so_cont        
+        
     def getJogos(self)-> list:
         jogos = []
         for carga in self.__tree:

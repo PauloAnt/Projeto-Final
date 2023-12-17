@@ -16,7 +16,10 @@ def exibir_menu_com_historico(history_search):
 {cor_vermelha("================ Menu Principal ===============")}
 {cor_azul("(p)")} Pesquisar jogo.                                
 {cor_azul("(l)")} Listar os jogos por sistema operacional.        
-{cor_azul("(d)")} Listar jogos por ano de lançamento.           
+{cor_azul("(d)")} Listar jogos por ano de lançamento. 
+{cor_azul("(y)")} Ver quantos jogos em cada ano.
+{cor_azul("(o)")} Ver sistema operacional mais utilizado.  
+{cor_azul("(q)")} Quantidade de jogos armazenados.        
 {cor_azul("(s)")} Sair.
 {cor_vermelha("Histórico de pesquisa: ")}{history_search}
 ''')
@@ -30,6 +33,7 @@ ID  Jogo            Genero            Desenvolvedor
     for item in jogos:
         cont += 1
         print(f'{cont:03d} {item.nome:<14.14}  {item.genero:<16.16}  {item.desenvolvedor:.16s}')
+    sleep(1)
 
 
 #Necessário a implementação 
@@ -80,17 +84,36 @@ while True:
             ano_de_lançamento = input("Digite o ano: ")
             year_games = gamer_center.find_game_year(ano_de_lançamento)
             if (year_games == False):
-                print("Ano inexistente!")
+                print("\n| Ano inexistente! |")
+                sleep(1)
             else:
                 print_resultado(ano_de_lançamento, year_games)
+                sleep(1)
             history_search.add_search(ano_de_lançamento)
-            
+        
+        elif (resposta == "y"):
+            cont_year_game = gamer_center.cont_game_per_year()
+            cont_year_game = dict(sorted(cont_year_game.items()))
+            for chave, carga in cont_year_game.items():
+                print(f"{chave}: {carga}")
+            sleep(2)
+
+        elif (resposta == "o"):
+            cont_so = gamer_center.cont_so()
+            print(f"\n| Sistema Operacional mais utilizado: {max(cont_so, key=cont_so.get)} |")
+            sleep(2)
+
+        elif (resposta == "q"):
+            print(f"\n| Temos {len(gamer_center)} jogos armazenados! |")
+            sleep(2)
+
         elif (resposta == "s"):
             print("Finalizando o programa...")
             sleep(1)
             break     
         else:
-            print("Opção inexistente!")
+            print("\n| Opção inexistente! |")
+
     except AssertionError as ae:
         print(ae)
     except BaseException as be:
