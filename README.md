@@ -22,7 +22,7 @@
     <h2>Contribuição</h2>
     <p>
       <a href="https://github.com/PauloAnt">PauloAnt</a> ---
-      rodrigoPadi ---
+      [rodrigoPadi](https://github.com/rodrigoPadi) ---
       RyannFB
     </p>
   </section>
