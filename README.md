@@ -25,29 +25,30 @@
     </p>
     <code>
     <!-- Exemplo de código de instalação -->
-git clone https://github.com/PauloAnt/Projeto-Final.git
-cd Projeto-Final
-npm install
+      git clone https://github.com/PauloAnt/Projeto-Final.git
+      cd Projeto-Final
+      npm install
     </code>
   </section>
 
   <section>
     <h2>Contribuição</h2>
     <p>
-      Indique como outros desenvolvedores podem contribuir para o seu projeto. Inclua informações sobre problemas abertos, solicitações de pull, etc.
+      rodriPadi
+      
     </p>
   </section>
 
   <section>
     <h2>Licença</h2>
     <p>
-      Descreva a licença do seu projeto para informar aos usuários como eles podem usar, modificar e distribuir o código.
+      MIT license.
     </p>
   </section>
 
   <footer>
     <p>
-      &copy; 2023 Seu Nome. Este projeto é distribuído sob a licença XYZ. Consulte o arquivo <a href="LICENSE">LICENSE</a> para obter mais detalhes.
+      &copy; 2023 Este projeto é distribuído sob a licença MIT. Consulte o arquivo <a href="LICENSE">LICENSE</a> para obter mais detalhes.
     </p>
   </footer>
 
