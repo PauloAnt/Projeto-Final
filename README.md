@@ -19,7 +19,7 @@
   </section>
 
   <section>
-    <h2>Contribuição</h2>
+    <h2>Contribuidores</h2>
     <p>
       <a href="https://github.com/PauloAnt">PauloAnt</a> ---
       <a href="https://github.com/rodrigoPadi">rodrigoPadi</a> ---
