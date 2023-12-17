@@ -19,23 +19,10 @@
   </section>
 
   <section>
-    <h2>Instalação</h2>
-    <p>
-      Para utilizar o código basta baixar o arquivo diretamente do github e instalar as suas pendências de funcionamento.
-    </p>
-    <code>
-    <!-- Exemplo de código de instalação -->
-      git clone https://github.com/PauloAnt/Projeto-Final.git
-      cd Projeto-Final
-      npm install
-    </code>
-  </section>
-
-  <section>
     <h2>Contribuição</h2>
     <p>
-      PauloAnt
-      rodriPadi
+      PauloAnt ---
+      rodriPadi ---
       RyannFB
     </p>
   </section>
