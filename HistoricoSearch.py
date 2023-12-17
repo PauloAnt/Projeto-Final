@@ -10,7 +10,8 @@ class HistorySearch:
         self.__limit = limit
 
     def __str__(self):
-        return f'{", ".join(map(str, self.get_history()))}'
+        reversed_history = list(reversed(self.get_history()))
+        return f'{", ".join(map(str, reversed_history))}'
     
     def add_search(self, search):
         if len(self.__pilha) == self.__limit:
