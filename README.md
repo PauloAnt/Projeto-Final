@@ -34,21 +34,15 @@
   <section>
     <h2>Contribuição</h2>
     <p>
+      PauloAnt
       rodriPadi
-      
-    </p>
-  </section>
-
-  <section>
-    <h2>Licença</h2>
-    <p>
-      MIT license.
+      RyannFB
     </p>
   </section>
 
   <footer>
     <p>
-      &copy; 2023 Este projeto é distribuído sob a licença MIT. Consulte o arquivo <a href="LICENSE">LICENSE</a> para obter mais detalhes.
+      &copy; 2023 Este projeto é distribuído sob a licença MIT. Consulte o arquivo <a href="LICENSE">[LICENSE](https://github.com/PauloAnt/Projeto-Final/blob/main/LICENSE)</a> para obter mais detalhes.
     </p>
   </footer>
 
